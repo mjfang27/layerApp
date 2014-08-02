@@ -1,7 +1,7 @@
 ENABLE_NS_ASSERTIONS = YES
-FRAMEWORK_SEARCH_PATHS = "$(PODS_ROOT)/LayerKit"
+FRAMEWORK_SEARCH_PATHS = "$(PODS_ROOT)/LayerKit" "$(PODS_ROOT)/Parse-iOS-SDK"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers" "${PODS_ROOT}/Headers/LayerKit"
-OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers" -isystem "${PODS_ROOT}/Headers/LayerKit"
-OTHER_LDFLAGS = -ObjC -lz -framework CFNetwork -framework LayerKit -framework MobileCoreServices -framework Security -framework SystemConfiguration
+HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers" "${PODS_ROOT}/Headers/Bolts" "${PODS_ROOT}/Headers/Facebook-iOS-SDK" "${PODS_ROOT}/Headers/Facebook-iOS-SDK/FacebookSDK" "${PODS_ROOT}/Headers/LayerKit" "${PODS_ROOT}/Headers/Parse-iOS-SDK"
+OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers" -isystem "${PODS_ROOT}/Headers/Bolts" -isystem "${PODS_ROOT}/Headers/Facebook-iOS-SDK" -isystem "${PODS_ROOT}/Headers/Facebook-iOS-SDK/FacebookSDK" -isystem "${PODS_ROOT}/Headers/LayerKit" -isystem "${PODS_ROOT}/Headers/Parse-iOS-SDK"
+OTHER_LDFLAGS = -ObjC -lsqlite3 -lz -framework AudioToolbox -framework CFNetwork -framework CoreGraphics -framework CoreLocation -framework LayerKit -framework MobileCoreServices -framework Parse -framework QuartzCore -framework Security -framework StoreKit -framework SystemConfiguration -weak_framework Accounts -weak_framework AdSupport -weak_framework Security -weak_framework Social
 PODS_ROOT = ${SRCROOT}/Pods

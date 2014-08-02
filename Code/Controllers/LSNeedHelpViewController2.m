@@ -8,6 +8,7 @@
 
 #import "LSNeedHelpViewController2.h"
 #import <Parse/Parse.h>
+#import "LSMessageViewController.h"
 
 @interface LSNeedHelpViewController2 ()
 
@@ -19,8 +20,13 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        self.view.backgroundColor = [UIColor lightGrayColor];
     }
+    [self.buttonMessage addTarget:self
+                           action:@selector(messageTapped)
+                 forControlEvents:UIControlEventTouchUpInside];
+    self.persistenceManager = [LSPersistenceManager init];
+
     return self;
 }
 
@@ -60,6 +66,12 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void) messageTapped
+{
+    LSMessageViewController *messageViewController = [[LSMessageViewController alloc] init];
+    [self.navigationController pushViewController:messageViewController animated:YES];
 }
 
 @end
