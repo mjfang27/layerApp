@@ -1,0 +1,3 @@
+PODS_LAYERSAMPLETESTS_KIF_FRAMEWORK_SEARCH_PATHS = $(DEVELOPER_DIR)/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks $(inherited) "$(SDKROOT)/Developer/Library/Frameworks"
+PODS_LAYERSAMPLETESTS_KIF_OTHER_CFLAGS = -DKIF_XCTEST
+PODS_LAYERSAMPLETESTS_KIF_OTHER_LDFLAGS = -framework CoreGraphics -framework XCTest

@@ -1,0 +1,7 @@
+ENABLE_NS_ASSERTIONS = YES
+FRAMEWORK_SEARCH_PATHS = "$(PODS_ROOT)/Instabug/" $(DEVELOPER_DIR)/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks $(inherited) "$(SDKROOT)/Developer/Library/Frameworks" "$(PODS_ROOT)/LayerKit"
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
+HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers" "${PODS_ROOT}/Headers/Expecta" "${PODS_ROOT}/Headers/Instabug" "${PODS_ROOT}/Headers/KIF" "${PODS_ROOT}/Headers/KIFViewControllerActions" "${PODS_ROOT}/Headers/LYRCountDownLatch" "${PODS_ROOT}/Headers/LayerKit" "${PODS_ROOT}/Headers/SVProgressHUD"
+OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers" -isystem "${PODS_ROOT}/Headers/Expecta" -isystem "${PODS_ROOT}/Headers/Instabug" -isystem "${PODS_ROOT}/Headers/KIF" -isystem "${PODS_ROOT}/Headers/KIFViewControllerActions" -isystem "${PODS_ROOT}/Headers/LYRCountDownLatch" -isystem "${PODS_ROOT}/Headers/LayerKit" -isystem "${PODS_ROOT}/Headers/SVProgressHUD" -DKIF_XCTEST
+OTHER_LDFLAGS = -ObjC -lz -framework AVFoundation -framework AudioToolbox -framework CFNetwork -framework CoreFoundation -framework CoreGraphics -framework CoreLocation -framework CoreMotion -framework CoreTelephony -framework Foundation -framework GLKit -framework Instabug -framework LayerKit -framework MobileCoreServices -framework OpenGLES -framework QuartzCore -framework Security -framework SystemConfiguration -framework UIKit -framework XCTest
+PODS_ROOT = ${SRCROOT}/Pods
