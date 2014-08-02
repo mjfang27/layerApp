@@ -14,6 +14,7 @@
 #import "LSPersistenceManager.h"
 #import "LSApplicationController.h"
 #import "LSAuthenticatedViewController.h"
+#import <Parse/Parse.h>
 
 extern void LYRSetLogLevelFromEnvironment();
 
@@ -21,8 +22,6 @@ extern void LYRSetLogLevelFromEnvironment();
 
 @property (nonatomic) UINavigationController *navigationController;
 @property (nonatomic, strong) LSApplicationController *applicationController;
-
-
 
 @end
 
@@ -76,6 +75,9 @@ extern void LYRSetLogLevelFromEnvironment();
     [application registerForRemoteNotificationTypes:UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeBadge];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadContacts) name:@"loadContacts" object:nil];
+    
+    
+    [Parse setApplicationId:@"bpRNZMZ2X1HS77nygncBN08Q38psIlWWEv0sOcUo" clientKey:@"MLJcJOyzSn8jlPyOdUFDFlHKBvMmypqrRSRLHXwg"];
     
     return YES;
 }
@@ -160,16 +162,8 @@ extern void LYRSetLogLevelFromEnvironment();
             NSError *persistenceError = nil;
             BOOL success = [self.applicationController.persistenceManager persistUsers:contacts error:&persistenceError];
             if (success) {
-                NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-                NSData *data = [NSKeyedArchiver archivedDataWithRootObject:contacts];
-                [defaults setObject:data forKey:@"contacts"];
-                
                 [[NSNotificationCenter defaultCenter] postNotificationName:@"contactsPersited" object:nil];
                 NSLog(@"Persisted contacts successfully: %@", contacts);
- 
-
-                
-                
             } else {
                 NSLog(@"Failed persisting contacts: %@. Error: %@", contacts, persistenceError);
                 LSAlertWithError(persistenceError);
@@ -186,11 +180,10 @@ extern void LYRSetLogLevelFromEnvironment();
     #warning PRESENT AUTHENTICATED UI HERE
     LSAuthenticatedViewController *authenticatedViewController = [[LSAuthenticatedViewController alloc] initWithNibName:@"LSHomeView" bundle:nil];
     authenticatedViewController.APIManager = self.applicationController.APIManager;
-    
+    authenticatedViewController.persistenceManager = self.applicationController.persistenceManager; 
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:authenticatedViewController];
     navController.navigationBar.barTintColor = LSLighGrayColor();
     navController.navigationBar.tintColor = LSBlueColor();
-    
     [self.navigationController presentViewController:navController animated:YES completion:^{
         NSLog(@"Succesfully logged in!");
     }];
