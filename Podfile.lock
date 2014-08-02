@@ -1,10 +1,19 @@
 PODS:
+  - Bolts (1.1.1)
+  - Facebook-iOS-SDK (3.16.2):
+    - Bolts
   - LayerKit (0.7.6)
+  - Parse-iOS-SDK (1.2.19):
+    - Facebook-iOS-SDK (~> 3.7)
 
 DEPENDENCIES:
   - LayerKit
+  - Parse-iOS-SDK
 
 SPEC CHECKSUMS:
+  Bolts: 0ca796081c3e7c139bd86d6903c27f1b83036a5d
+  Facebook-iOS-SDK: 34eef640c2cc4c8618ba0f574ad2b290e07f1b4e
   LayerKit: d26eeef10bd1e24841745e6304b7e8b8c431ef01
+  Parse-iOS-SDK: 5e1f7e649a02f1cc19e73cc95bd43d7778848314
 
 COCOAPODS: 0.33.1

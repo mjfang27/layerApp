@@ -7,7 +7,7 @@
 //
 
 #import "LSNeedHelpViewController2.h"
-#import "LSMessageViewController.h"
+#import <Parse/Parse.h>
 
 @interface LSNeedHelpViewController2 ()
 
@@ -19,12 +19,8 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.view.backgroundColor = [UIColor lightGrayColor];
+        // Custom initialization
     }
-    
-    [self.buttonMessage addTarget:self
-                            action:@selector(messageTapped)
-                  forControlEvents:UIControlEventTouchUpInside];
     return self;
 }
 
@@ -32,6 +28,32 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    NSMutableArray * givingPeople = [self queryDatabase];
+    NSLog(givingPeople);
+}
+
+-(NSMutableArray*) queryDatabase {
+    NSLocale* currentLocale = [NSLocale currentLocale];
+    NSDate *date = [[NSDate date] descriptionWithLocale:currentLocale];
+    LSSession *session = [self.persistenceManager persistedSessionWithError:nil];
+    LSUser *user = session.user;
+    NSMutableArray *givingPeople = [[NSMutableArray alloc] init];
+    PFQuery *query = [PFQuery queryWithClassName: @"user_calendar"];
+    [query whereKey:@"Wanting" containsString:user.userID]; //current user
+    [query whereKey:@"start_time" lessThan:date]; //get current time
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if(!error) {
+            NSLog(@"Retrieved that shit");
+            for(PFObject *object in objects) {
+                NSString *person = [object objectForKey:@"Giving"];
+                [givingPeople addObject:person];
+            }
+        } else {
+            NSLog(@"Errorrrrr");
+        }
+    }];
+    return givingPeople;
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -39,13 +61,5 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
--(void) messageTapped
-{
-    LSMessageViewController *messageViewController = [[LSMessageViewController alloc] init];
-    [self.navigationController pushViewController:messageViewController animated:YES];
-}
-
-//-(void)
 
 @end

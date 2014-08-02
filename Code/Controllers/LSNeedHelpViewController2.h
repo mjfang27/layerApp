@@ -7,11 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LSPersistenceManager.h"
 
 @interface LSNeedHelpViewController2 : UIViewController
 
-@property (nonatomic, retain) IBOutlet UILabel *onCallName;
-@property (nonatomic, retain) IBOutlet UIButton* buttonMessage;
-
+@property (nonatomic, strong) LSPersistenceManager *persistenceManager; 
 
 @end

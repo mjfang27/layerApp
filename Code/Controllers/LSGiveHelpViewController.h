@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LSPersistenceManager.h"
 
 @interface LSGiveHelpViewController : UIViewController
+
+@property (nonatomic, strong) LSPersistenceManager *persistenceManager; 
 
 @end
