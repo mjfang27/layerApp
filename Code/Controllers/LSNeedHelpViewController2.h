@@ -9,10 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "LSPersistenceManager.h"
 
-@interface LSNeedHelpViewController2 : UIViewController
+@interface LSNeedHelpViewController2 : UIViewController <UIPickerViewDelegate, UIPickerViewDataSource>
 
 @property (nonatomic, retain) IBOutlet UILabel *onCallName;
 @property (nonatomic, retain) IBOutlet UIButton* buttonMessage;
-@property (nonatomic, strong) LSPersistenceManager *persistenceManager; 
+@property (nonatomic, strong) NSArray *givingPeople;
+@property (nonatomic, strong) LSPersistenceManager *persistenceManager;
+@property (nonatomic, strong) UIPickerView* giverPicker; 
 
 @end

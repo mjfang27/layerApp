@@ -29,13 +29,35 @@
     return self;
 }
 
+-(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
+{
+    return 1; // For one column
+}
+
+-(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
+{
+    return [self.givingPeople count]; // Numbers of rows
+}
+
+-(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
+{
+    return ([self.givingPeople objectAtIndex:row]); // If it's a string
+}
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     self.persistenceManager = LSPersitenceManager();
     // Do any additional setup after loading the view from its nib.
-    NSMutableArray * givingPeople = [self queryDatabaseWithCompletion:^(NSArray *givingPeople, NSError *error) {
-        NSLog(@"%@", givingPeople);
+    NSArray * givingPeople = [self queryDatabaseWithCompletion:^(NSArray *givingPeople, NSError *error) {
+        if (givingPeople == nil) return;
+        self.givingPeople = givingPeople;
+        self.giverPicker = [[UIPickerView alloc] init];
+        
+        self.giverPicker.frame =CGRectMake(0, 100, self.giverPicker.frame.size.width, self.giverPicker.frame.size.height);
+        [self.view addSubview:self.giverPicker];
+        self.giverPicker.delegate = self;
     }];
 }
 
