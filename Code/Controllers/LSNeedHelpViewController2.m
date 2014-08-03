@@ -9,6 +9,7 @@
 #import "LSNeedHelpViewController2.h"
 #import <Parse/Parse.h>
 #import "LSMessageViewController.h"
+#import "LSUtilities.h"
 
 @interface LSNeedHelpViewController2 ()
 
@@ -25,34 +26,42 @@
     [self.buttonMessage addTarget:self
                            action:@selector(messageTapped)
                  forControlEvents:UIControlEventTouchUpInside];
-    self.persistenceManager = [LSPersistenceManager init];
-
     return self;
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.persistenceManager = LSPersitenceManager();
     // Do any additional setup after loading the view from its nib.
-    NSMutableArray * givingPeople = [self queryDatabase];
-    NSLog(givingPeople);
+    NSMutableArray * givingPeople = [self queryDatabaseWithCompletion:^(NSArray *givingPeople, NSError *error) {
+        NSLog(@"%@", givingPeople);
+    }];
 }
 
--(NSMutableArray*) queryDatabase {
-    NSLocale* currentLocale = [NSLocale currentLocale];
-    NSDate *date = [[NSDate date] descriptionWithLocale:currentLocale];
+-(NSMutableArray*) queryDatabaseWithCompletion:(void(^)(NSArray *givingPeople, NSError *error))completion
+{
+    NSDate *date = [[NSDate alloc] init];
+    NSDateFormatter *formatter =  [[NSDateFormatter alloc] init];
     LSSession *session = [self.persistenceManager persistedSessionWithError:nil];
     LSUser *user = session.user;
     NSMutableArray *givingPeople = [[NSMutableArray alloc] init];
+    NSLog(@"The user id is: %@: ", user.email);
     PFQuery *query = [PFQuery queryWithClassName: @"user_calendar"];
-    [query whereKey:@"Wanting" containsString:user.userID]; //current user
-    [query whereKey:@"start_time" lessThan:date]; //get current time
+    [query whereKey:@"Wanting" containsString:user.email]; //current user
+    [query whereKey:@"start_date" lessThan:date]; //get current time
+    [query whereKey:@"end_date" greaterThan:date];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if(!error) {
             NSLog(@"Retrieved that shit");
             for(PFObject *object in objects) {
-                NSString *person = [object objectForKey:@"Giving"];
+                NSString *person = [object objectForKey:@"Giver"];
                 [givingPeople addObject:person];
+            }
+            if (givingPeople.count > 0) {
+                completion(givingPeople, nil);
+            } else {
+                completion(nil, nil);
             }
         } else {
             NSLog(@"Errorrrrr");

@@ -5,36 +5,36 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>FE8103BA-6BC3-4687-BE66-0B86D10792B1</string>
+	<string>B89BD5FC-DCF9-4BE1-B2C4-6E95BB09021E</string>
 	<key>IDESourceControlProjectName</key>
 	<string>LayerSample</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>4510DE01-FEEC-47AF-BD04-E36F25822260</key>
-		<string>https://github.com/mjfang27/layer-hack-ios.git</string>
+		<key>FF1DE030-0C95-42E6-B141-0BACB3A2B68F</key>
+		<string>https://github.com/mjfang27/layerApp.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>LayerSample.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>4510DE01-FEEC-47AF-BD04-E36F25822260</key>
+		<key>FF1DE030-0C95-42E6-B141-0BACB3A2B68F</key>
 		<string>..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/mjfang27/layer-hack-ios.git</string>
+	<string>https://github.com/mjfang27/layerApp.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>4510DE01-FEEC-47AF-BD04-E36F25822260</string>
+	<string>FF1DE030-0C95-42E6-B141-0BACB3A2B68F</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>4510DE01-FEEC-47AF-BD04-E36F25822260</string>
+			<string>FF1DE030-0C95-42E6-B141-0BACB3A2B68F</string>
 			<key>IDESourceControlWCCName</key>
-			<string>layer-hack-ios</string>
+			<string>layerApp</string>
 		</dict>
 	</array>
 </dict>
