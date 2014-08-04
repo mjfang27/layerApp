@@ -9,8 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "LSPersistenceManager.h"
 
-@interface LSGiveHelpViewController : UIViewController
+@interface LSGiveHelpViewController : UIViewController <UIPickerViewDelegate, UIPickerViewDataSource>
 
+@property UIButton* registerButton;
+@property (nonatomic, strong) UIPickerView* namePicker;
 @property (nonatomic, strong) LSPersistenceManager *persistenceManager; 
 
 @end

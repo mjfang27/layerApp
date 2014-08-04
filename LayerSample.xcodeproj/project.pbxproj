@@ -53,6 +53,7 @@
 		4A94E2BE198D80FB0013F724 /* LSNeedHelpViewController2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A94E2BC198D80FB0013F724 /* LSNeedHelpViewController2.xib */; };
 		4A94E2C2198D8CCE0013F724 /* LSMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A94E2C0198D8CCE0013F724 /* LSMessageViewController.m */; };
 		4A94E2C3198D8CCE0013F724 /* LSMessageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A94E2C1198D8CCE0013F724 /* LSMessageViewController.xib */; };
+		4A94E2C9198DBF7E0013F724 /* ToastView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A94E2C8198DBF7E0013F724 /* ToastView.m */; };
 		9842E4DC1E04484898FEF487 /* libPods-LayerSampleTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FBBE2D1F4815451CAAD12DF4 /* libPods-LayerSampleTests.a */; };
 /* End PBXBuildFile section */
 
@@ -136,6 +137,8 @@
 		4A94E2BF198D8CCE0013F724 /* LSMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSMessageViewController.h; sourceTree = "<group>"; };
 		4A94E2C0198D8CCE0013F724 /* LSMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSMessageViewController.m; sourceTree = "<group>"; };
 		4A94E2C1198D8CCE0013F724 /* LSMessageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LSMessageViewController.xib; path = ../Controllers/LSMessageViewController.xib; sourceTree = "<group>"; };
+		4A94E2C7198DBF7E0013F724 /* ToastView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ToastView.h; path = Code/ToastView.h; sourceTree = SOURCE_ROOT; };
+		4A94E2C8198DBF7E0013F724 /* ToastView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ToastView.m; path = Code/ToastView.m; sourceTree = SOURCE_ROOT; };
 		53480A235A364E9AAAB2DC78 /* Pods-LayerSampleTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LayerSampleTests.xcconfig"; path = "Pods/Pods-LayerSampleTests.xcconfig"; sourceTree = "<group>"; };
 		931E36A3415C497CA3681E7F /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A939C393B9254AF5B6B4FB43 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
@@ -282,6 +285,8 @@
 		259A573B1950EB76000E27B0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				4A94E2C7198DBF7E0013F724 /* ToastView.h */,
+				4A94E2C8198DBF7E0013F724 /* ToastView.m */,
 				4A94E2C1198D8CCE0013F724 /* LSMessageViewController.xib */,
 				4A94E2BC198D80FB0013F724 /* LSNeedHelpViewController2.xib */,
 				4A2F2306198D790600261545 /* LSGiveHelpViewController.xib */,
@@ -504,6 +509,7 @@
 				0A52D6011962219D0030A34A /* LSMessageCellPresenter.m in Sources */,
 				259A574F1950EB76000E27B0 /* LSAPIManager.m in Sources */,
 				259A57631950EB76000E27B0 /* LSButton.m in Sources */,
+				4A94E2C9198DBF7E0013F724 /* ToastView.m in Sources */,
 				259A57671950EB76000E27B0 /* LSInputTableViewCell.m in Sources */,
 				0A96F6CA1989AD1100A55C08 /* LSApplicationController.m in Sources */,
 				0A2324F51960DB8C00C1C98D /* LSConversationCellPresenter.m in Sources */,
