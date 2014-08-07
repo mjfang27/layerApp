@@ -26,6 +26,7 @@
     [self.buttonMessage addTarget:self
                            action:@selector(messageTapped)
                  forControlEvents:UIControlEventTouchUpInside];
+    [self.buttonCall addTarget:self action:@selector(callTapped) forControlEvents:UIControlEventTouchUpInside];
     return self;
 }
 
@@ -53,11 +54,11 @@
     NSArray * givingPeople = [self queryDatabaseWithCompletion:^(NSArray *givingPeople, NSError *error) {
         if (givingPeople == nil) return;
         self.givingPeople = givingPeople;
-        self.giverPicker = [[UIPickerView alloc] init];
+        //self.giverPicker = [[UIPickerView alloc] init];
         
-        self.giverPicker.frame =CGRectMake(0, 100, self.giverPicker.frame.size.width, self.giverPicker.frame.size.height);
-        [self.view addSubview:self.giverPicker];
-        self.giverPicker.delegate = self;
+        //self.giverPicker.frame =CGRectMake(0, 100, self.giverPicker.frame.size.width, self.giverPicker.frame.size.height);
+        //[self.view addSubview:self.giverPicker];
+        //self.giverPicker.delegate = self;
     }];
 }
 
@@ -101,8 +102,22 @@
 
 -(void) messageTapped
 {
-    LSMessageViewController *messageViewController = [[LSMessageViewController alloc] init];
-    [self.navigationController pushViewController:messageViewController animated:YES];
+    //LSMessageViewController *messageViewController = [[LSMessageViewController alloc] init];
+    //[self.navigationController pushViewController:messageViewController animated:YES];
+    
+    //TODO: get number:
+    NSString *number = @"5551234";
+    NSString *URLString = [@"sms:" stringByAppendingString:number];
+    NSURL *URL = [NSURL URLWithString:URLString];
+    [[UIApplication sharedApplication] openURL:URL];
+
+}
+-(void) callTapped
+{
+    NSString *number = @"5551234";
+    NSString *URLString = [@"tel://" stringByAppendingString:number];
+    NSURL *URL = [NSURL URLWithString:URLString];
+    [[UIApplication sharedApplication] openURL:URL];
 }
 
 @end

@@ -55,7 +55,7 @@
 
 -(void) needHelpTapped
 {
-    LSNeedHelpViewController2 *needHelpViewController = [[LSNeedHelpViewController2 alloc] init];
+    LSNeedHelpViewController2 *needHelpViewController = [[LSNeedHelpViewController2 alloc] initWithNibName:@"LSNeedHelpViewController2" bundle:nil];
     needHelpViewController.persistenceManager = self.persistenceManager;
     [self.navigationController pushViewController:needHelpViewController animated:YES];
 
